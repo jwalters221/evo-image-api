@@ -1,24 +1,19 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Overview:
 
-Things you may want to cover:
+* Watch video provided for functioanlity
 
-* Ruby version
+Usage:
 
-* System dependencies
+* Ask me for .env file
 
-* Configuration
+* Clone repo to local dev environment
 
-* Database creation
+* docker-compose up
 
-* Database initialization
+Notes:
 
-* How to run the test suite
+* Using AWS SDK for bucket access and RTesseract for OCR
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
-
-* ...

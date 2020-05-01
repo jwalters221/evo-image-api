@@ -2,7 +2,7 @@
 
 Overview:
 
-* Watch video provided for functioanlity
+* Watch video provided for functionality
 
 Usage:
 

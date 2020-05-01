@@ -22,6 +22,21 @@ class AwsBucketAccess
       end
 
     end
+
+    def remove_image_from_bucket(key)
+      
+      #remove image
+      S3_BUCKET.delete_objects(
+        delete: {
+          objects: [
+            {
+              key: key
+            }
+          ]
+        }
+      )
+    end
+
   end
 
 end

@@ -1,9 +1,39 @@
 <div>
 	<h1>S3 Bucket Images</h1>
+	<p>The images below have been pulled from the demo S3 bucket.
+		A randomly selected image is shown below with highlighted orange border.
+		This image will be sent to the API endpoint for processing when the button 
+		is clicked.
+	</p>
 	<div style="display: inline-block">
-	  <% @buckets.each do |item| %>
-	  	<img style="border: 1px solid black" src='/S3Images/<%= item.key %>'>
+	  <% 
+	  	#set random number for image selection
+	  	random = rand 1..@buckets.count
+
+	  	#set counter
+	  	counter = 1
+
+	  	#loop through S3 images
+	    @buckets.each do |item| %>
+
+	    	<% if counter == random %>
+	  			<img style="border: 8px solid orange" src='/S3Images/<%= item.key %>'>
+	  		<% 
+	  			filename = item.key
+	  			base64 = Base64.encode64(open('public/S3Images/' + item.key) { |io| io.read }) 
+	  		%>
+	  		<input type="hidden" id="filename" value="<%= filename %>">
+	  		<input type="hidden" id="base64" value="<%= base64 %>">
+	  		<% else %>
+	  			<img style="border: 1px solid black" src='/S3Images/<%= item.key %>'>	
+	  		<% end %>	
+	  	<% counter += 1 %>
 	  <% end %>
 	</div>
+	<div>
+		<button style="margin-top:20px;font-size:20px" onclick="callAPI()">Call API</button>
+	</div>
+	<div style="margin-top:20px;" id="api-response"></div>
+
 </div>
 

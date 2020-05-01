@@ -12,6 +12,23 @@ class ImageProcessor
       end
 
     end
+
+    def text_check(filename, image_text)
+
+      if image_text == " \n\f"
+        
+        #remove from S3 bucket
+        AwsBucketAccess.remove_image_from_bucket(filename)
+
+        #set message for API response
+        msg = "image does not contain text, removed from S3 bucket"
+
+      else
+        msg = "image contains text, kept in S3 bucket"
+      end
+
+    end
+
   end
 
 end

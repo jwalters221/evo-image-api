@@ -4,6 +4,6 @@ Rails.application.routes.draw do
 	root to: 'website#index'
 
 	#api endpoint
-	post '/api/process_images' => 'api#process_images'
+	post '/api/process_images' => 'api#image_handler'
 
 end

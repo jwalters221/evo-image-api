@@ -6,14 +6,10 @@ class AwsBucketAccess
 
     def get_bucket_objects
 
-      #set public app image directory
       dir_path = 'public/S3Images'
 
-      #remove all files from public app image directory
-      Dir.foreach(dir_path) do |f|
-        fn = File.join(dir_path, f)
-        File.delete(fn) if f != '.' && f != '..'
-      end
+      #clear out local directory of S3 images
+      ImageProcessor.remove_images_from_directory(dir_path)
 
       #retrieve image names from S3 bucket
       images = S3_BUCKET.objects

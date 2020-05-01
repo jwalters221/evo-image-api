@@ -3,10 +3,9 @@ class OcrServices
 
   class << self
 
-    def get_string_from_image
+    def get_string_from_image(image_path)
 
-      filepath = 'public/S3Images/text1.png'
-      image = RTesseract.new(filepath, lang: 'eng')
+      image = RTesseract.new(image_path, lang: 'eng')
       text = image.to_s # Getting the value
 
     end

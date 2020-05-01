@@ -1,4 +1,4 @@
-source 'http://rubygems.org'
+source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.8'
@@ -18,7 +18,6 @@ gem 'aws-sdk'
 gem 'dotenv-rails'
 gem 'rack-cors'
 gem 'rtesseract'
-gem 'tesseract-ocr'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
